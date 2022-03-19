@@ -1,0 +1,48 @@
+<template>
+  <section id="about" class="about-me d-flex align-items-center">
+    <container>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-3 text-center order-1 order-lg-0">
+          <img
+            src="@/assets/bio-image.png"
+            alt="Ajibolanle"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-12 col-lg-6 col-md-8">
+          <div class="mb-4 mb-md-5">
+            <h1 class="title mb-0 lh-1 fw-bold">I am Ajibolanle</h1>
+            <p class="subtitle mb-0 lh-1">Frontend Developer</p>
+          </div>
+          <div class="desc-box">
+            <p>
+              One of the reasons I love coding makes it possible to bring ideas
+              to life.
+            </p>
+          </div>
+        </div>
+      </div></container
+    >
+  </section>
+</template>
+
+<style scoped>
+.about-me {
+  height: 100vh;
+}
+.title {
+  color: var(--brand-dark-alt);
+  font-size: 96px;
+  font-size: clamp(48px, 4rem + 3.5vw, 96px);
+}
+.subtitle {
+  font-weight: 600;
+  font-size: 48px;
+  font-size: clamp(36px, 2.5rem + 1.5vw, 48px);
+}
+.desc-box p {
+  font-weight: 500;
+  font-size: 36px;
+  font-size: clamp(24px, 2rem + 1vw, 36px);
+}
+</style>
