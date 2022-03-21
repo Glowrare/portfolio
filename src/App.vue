@@ -123,23 +123,45 @@ export default {
       ],
     };
   },
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    console.log("created");
+  },
+  beforeMount() {
+    console.log("beforeMount");
+  },
   mounted() {
+    console.log("mounted");
     this.layering();
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
+  },
+  beforeUnmount() {
+    console.log("beforeUnmount");
+  },
+  unmounted() {
+    console.log("unmounted");
   },
   methods: {
     layering() {
-      gsap.utils.toArray("section").forEach((section) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-        });
+      ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function () {
+          gsap.utils.toArray("section").forEach((section) => {
+            ScrollTrigger.create({
+              trigger: section,
+              start: "top top",
+              pin: true,
+              pinSpacing: false,
+            });
+          });
+        },
       });
-
-      // ScrollTrigger.create({
-      //   snap: 1 / 4, // snap whole page to the closest section!
-      // });
     },
   },
 };
@@ -183,6 +205,7 @@ html {
 section {
   min-height: 100vh;
   background: var(--brand-light);
+  padding-top: 100px;
 }
 .sec-header {
   font-weight: 600;
