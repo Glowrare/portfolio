@@ -1,10 +1,12 @@
 <template>
   <Progress />
   <TheHeader />
-  <Welcome />
-  <Skills />
-  <Portfolio :projects="projects" />
-  <Contact />
+  <main>
+    <Welcome />
+    <Skills />
+    <Portfolio :projects="projects" />
+    <Contact />
+  </main>
   <TheFooter />
 </template>
 
@@ -16,6 +18,8 @@ import Skills from "./components/sections/Skills.vue";
 import Portfolio from "./components/sections/Portfolio.vue";
 import Contact from "./components/sections/Contact.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
+
+import { gsap, ScrollTrigger } from "./gsap.js";
 
 export default {
   name: "App",
@@ -119,6 +123,25 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.layering();
+  },
+  methods: {
+    layering() {
+      gsap.utils.toArray("section").forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+        });
+      });
+
+      // ScrollTrigger.create({
+      //   snap: 1 / 4, // snap whole page to the closest section!
+      // });
+    },
+  },
 };
 </script>
 
@@ -134,6 +157,14 @@ export default {
   --theme-light: #f5f5f5;
   --theme-clr: #711a75;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --brand-dark-alt: #e2d784;
+    --brand-dark: #f5f5f5;
+    --brand-light: #180a0a;
+  }
+} */
 .darkmode {
   --brand-dark-alt: #e2d784;
   --brand-dark: #f5f5f5;
@@ -146,10 +177,12 @@ html {
   font-family: "Khand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--brand-light);
   color: var(--brand-dark);
 }
 section {
   min-height: 100vh;
+  background: var(--brand-light);
 }
 .sec-header {
   font-weight: 600;

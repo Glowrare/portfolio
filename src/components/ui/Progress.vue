@@ -3,16 +3,21 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "../../gsap.js";
+
 export default {
-  created() {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to("progress", {
-      value: 100,
-      ease: "none",
-      scrollTrigger: { scrub: 0.3 },
-    });
+  mounted() {
+    this.progress();
+  },
+  methods: {
+    progress() {
+      // gsap.registerPlugin(ScrollTrigger);
+      gsap.to("progress", {
+        value: 100,
+        ease: "none",
+        scrollTrigger: { scrub: 0.3 },
+      });
+    },
   },
 };
 </script>
@@ -28,31 +33,28 @@ progress {
   height: 15px;
   border: none;
   background: transparent;
+  z-index: 1000;
 }
 progress::-webkit-progress-bar {
   background: transparent;
 }
 progress::-webkit-progress-value {
   background: linear-gradient(
-    to left,
-    #db38b5,
-    #01b3e3,
-    #25ce7b,
-    #fdc741,
-    #ff6b01,
-    #fc4236
+    180deg,
+    #e2d784 0%,
+    #711a75 47.92%,
+    #e2d784 47.92%,
+    rgba(24, 10, 10, 0.77) 100%
   );
   background-attachment: fixed;
 }
 progress::-moz-progress-bar {
   background: linear-gradient(
-    to left,
-    #db38b5,
-    #01b3e3,
-    #25ce7b,
-    #fdc741,
-    #ff6b01,
-    #fc4236
+    180deg,
+    #e2d784 0%,
+    #711a75 47.92%,
+    #e2d784 47.92%,
+    rgba(24, 10, 10, 0.77) 100%
   );
   background-attachment: fixed;
 }
