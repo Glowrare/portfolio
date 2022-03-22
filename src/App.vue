@@ -1,6 +1,7 @@
 <template>
   <Progress />
-  <TheHeader />
+  <TheHeader :lightTheme="lightTheme" />
+  <ThemeSwitch @changeTheme="changeTheme" :lightTheme="lightTheme" />
   <main>
     <Welcome />
     <Skills />
@@ -18,6 +19,7 @@ import Skills from "./components/sections/Skills.vue";
 import Portfolio from "./components/sections/Portfolio.vue";
 import Contact from "./components/sections/Contact.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
+import ThemeSwitch from "./components/switch/ThemeSwitch.vue";
 
 export default {
   name: "App",
@@ -29,6 +31,7 @@ export default {
     Portfolio,
     Contact,
     TheFooter,
+    ThemeSwitch,
   },
   data() {
     return {
@@ -102,6 +105,7 @@ export default {
           ],
         },
       ],
+      lightTheme: true,
     };
   },
   mounted() {
@@ -127,6 +131,18 @@ export default {
     sections.forEach((section) => {
       observer.observe(section);
     });
+  },
+  watch: {
+    lightTheme(newVal) {
+      const app = document.getElementById("app");
+      if (!newVal) app.classList.add("darkmode");
+      else app.classList.remove("darkmode");
+    },
+  },
+  methods: {
+    changeTheme() {
+      this.lightTheme = !this.lightTheme;
+    },
   },
 };
 </script>

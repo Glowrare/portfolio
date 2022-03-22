@@ -6,6 +6,13 @@
           src="@/assets/ajibolanle-logo-light-theme.png"
           alt=""
           class="img-fluid logo"
+          v-if="lightTheme"
+        />
+        <img
+          src="@/assets/ajibolanle-logo-dark-theme.png"
+          alt=""
+          class="img-fluid logo"
+          v-else
         />
       </a>
       <button
@@ -22,7 +29,7 @@
       <div class="collapse navbar-collapse" id="pageNavigation">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-items">
           <li class="nav-item">
-            <a class="nav-link active" href="#about">Home</a>
+            <a class="nav-link" href="#about">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#skills">Skills</a>
@@ -39,6 +46,12 @@
   </nav>
 </template>
 
+<script>
+export default {
+  props: ["lightTheme"],
+};
+</script>
+
 <style scoped>
 nav {
   position: fixed;
@@ -47,7 +60,6 @@ nav {
   right: 0;
   top: 0;
   height: 80px;
-  /* overflow: hidden; */
   z-index: 99;
   font-size: 2.4rem;
 }
@@ -69,12 +81,8 @@ nav {
   color: var(--brand-dark);
   font-weight: 500;
 }
-.navbar .menu-items li a:hover,
-.navbar .menu-items li a.active {
+.navbar .menu-items li a:hover {
   color: var(--brand-dark);
   text-decoration: underline;
-}
-
-@media screen and (max-width: 992px) {
 }
 </style>

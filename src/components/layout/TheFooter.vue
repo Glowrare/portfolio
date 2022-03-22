@@ -27,7 +27,13 @@ footer {
 footer a img {
   transition: all 0.3s ease-in-out;
 }
+.darkmode footer a img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg)
+    brightness(105%) contrast(102%);
+}
 footer a:hover img {
   transform: scale(0.8);
+  filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg)
+    brightness(95%) contrast(86%);
 }
 </style>
