@@ -7,7 +7,7 @@
           <a href="https://github.com/Glowrare" target="_blank" class="me-5"
             ><img src="@/assets/github-icon.svg" alt="Github"
           /></a>
-          <a href="https://www.linkedin.com/in/ajibolanle/"
+          <a href="https://www.linkedin.com/in/ajibolanle/" target="_blank"
             ><img src="@/assets/linkedin-icon.svg" alt="LinkedIn"
           /></a>
         </div>

@@ -168,7 +168,7 @@ export default {
     changeTheme() {
       this.lightTheme = !this.lightTheme;
     },
-    async submitHandler(name, email, message) {
+    async submitHandler({ name, email, message }) {
       this.loading = true;
       this.success = false;
       const response = await fetch(FORMSPARK_ACTION_URL, {
