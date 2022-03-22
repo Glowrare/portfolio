@@ -132,11 +132,22 @@ export default {
       observer.observe(section);
     });
   },
+  created() {
+    let darkMode = localStorage.getItem("darkMode");
+    if (darkMode === "enabled") {
+      this.lightTheme = false;
+    }
+  },
   watch: {
     lightTheme(newVal) {
       const app = document.getElementById("app");
-      if (!newVal) app.classList.add("darkmode");
-      else app.classList.remove("darkmode");
+      if (!newVal) {
+        app.classList.add("darkmode");
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        app.classList.remove("darkmode");
+        localStorage.setItem("darkMode", null);
+      }
     },
   },
   methods: {
