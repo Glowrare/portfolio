@@ -7,24 +7,28 @@
           ref="descriptionSlider"
           :breakpoints="descBreakpoints"
           :arrows="false"
+          :touchable="false"
+          :slide-ratio="1 / 5"
           @slide="
             $refs.listSlider &&
               $refs.listSlider.goToSlide($event.currentSlide.index, {
                 emit: false,
               })
           "
-          class="no-shadow"
+          class="no-shadow fade-in"
           :bullets="false"
         >
           <vueper-slide v-for="(project, i) in projects" :key="i">
             <template #content>
-              <div class="vueperslide__content-wrapper desc__wrapper p-5">
+              <div class="vueperslide__content-wrapper desc__wrapper p-3">
                 <div class="vueperslide__title desc__wrapper-title">
                   {{ project.desc }}
                 </div>
-                <ul class="desc__wrapper-links">
+                <ul class="desc__wrapper-links mt-3">
                   <li v-for="(link, i) in project.links" :key="i">
-                    <a :href="link.url" target="_blank">{{ link.type }}</a>
+                    <a :href="link.url" target="_blank" class="py-1 px-4">{{
+                      link.type
+                    }}</a>
                   </li>
                 </ul>
               </div>
@@ -37,7 +41,7 @@
           ref="listSlider"
           :breakpoints="listBreakpoints"
           :visible-slides="3"
-          :slide-ratio="1 / 4"
+          :slide-ratio="1 / 5"
           :bullets="false"
           :dragging-distance="50"
           @slide="
@@ -47,7 +51,7 @@
               })
           "
           :gap="2.5"
-          class="no-shadow slider-container--list"
+          class="no-shadow slider-container--list fade-from-bottom"
         >
           <vueper-slide
             v-for="(project, i) in projects"
@@ -58,7 +62,11 @@
               <div class="vueperslide__content-wrapper list__wrapper">
                 <h3 class="vueperslide__title">{{ project.name }}</h3>
                 <ul>
-                  <li v-for="(lang, i) in project.langs" :key="i">
+                  <li
+                    v-for="(lang, i) in project.langs"
+                    :key="i"
+                    class="py-1 px-4"
+                  >
                     {{ lang }}
                   </li>
                 </ul>
@@ -80,13 +88,13 @@ export default {
     return {
       descBreakpoints: {
         1200: {
-          slideRatio: 1 / 2,
+          slideRatio: 1 / 3,
         },
         769: {
-          slideRatio: 1 / 1,
+          slideRatio: 1 / 2,
         },
         481: {
-          slideRatio: 1 / 1,
+          slideRatio: 1 / 2,
         },
       },
       listBreakpoints: {
@@ -98,7 +106,7 @@ export default {
           slideRatio: 1 / 2,
           visibleSlides: 2,
         },
-        481: {
+        581: {
           slideRatio: 1 / 2,
           visibleSlides: 1,
         },
@@ -113,9 +121,27 @@ export default {
   border: 10px solid var(--brand-dark);
   font-size: 36px;
   font-size: clamp(24px, 2rem + 1vw, 36px);
+  line-height: 1;
 }
-.desc__wrapper .desc__wrapper-links {
+.desc__wrapper .desc__wrapper-links,
+.list__wrapper ul {
   list-style: none;
+}
+.desc__wrapper .desc__wrapper-links li,
+.list__wrapper ul li {
+  display: inline-block;
+  font-size: 24px;
+}
+.desc__wrapper .desc__wrapper-links li:not(:last-child),
+.list__wrapper ul li:not(:last-child) {
+  margin-right: 10px;
+}
+.desc__wrapper .desc__wrapper-links li a {
+  text-decoration: none;
+  color: var(--brand-light);
+  background-color: var(--brand-dark);
+  display: inherit;
+  border-radius: 30px;
 }
 .slider-container--list {
   /* height: 500px; */
@@ -128,5 +154,10 @@ export default {
   font-weight: 600;
   font-size: 48px;
   font-size: clamp(36px, 2.5rem + 1.5vw, 48px);
+}
+.list__wrapper ul li {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+  border-radius: 15px;
 }
 </style>

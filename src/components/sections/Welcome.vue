@@ -28,8 +28,8 @@
           </div>
           <div class="desc-box fade-from-bottom position-relative">
             <p>
-              One of the reasons I love coding makes it possible to bring ideas
-              to life.
+              One of the reasons I love coding is how coding makes it possible
+              to bring ideas to life.
             </p>
           </div>
         </div>

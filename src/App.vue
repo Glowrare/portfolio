@@ -19,8 +19,6 @@ import Portfolio from "./components/sections/Portfolio.vue";
 import Contact from "./components/sections/Contact.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
 
-import { gsap, ScrollTrigger } from "./gsap.js";
-
 export default {
   name: "App",
   components: {
@@ -56,7 +54,7 @@ export default {
           id: 2,
           name: "Hero Finder",
           image: "",
-          desc: "Search for superheroes and villains across various universe to generate a magazine cover and get details about their biography, powerstats, connections, appearnce and work.",
+          desc: "Search for superheroes and villains across various universe to generate a downloadable magazine cover and get details about their biography, powerstats, connections, appearance & work.",
           langs: ["Vue", "Vuex"],
           links: [
             {
@@ -103,29 +101,10 @@ export default {
             },
           ],
         },
-        {
-          id: 5,
-          name: "Weather",
-          image: "",
-          desc: "Lorem Ipsum hjhkj",
-          langs: ["Vue", "Vuex"],
-          links: [
-            {
-              type: "Live site",
-              url: "https://glowrare.github.io/Hero-FInder/",
-            },
-            {
-              type: "Repo",
-              url: "https://github.com/Glowrare/Hero-FInder",
-            },
-          ],
-        },
       ],
     };
   },
   mounted() {
-    console.log("mounted");
-    // this.layering();
     const sections = document.querySelectorAll("section");
 
     const options = {
@@ -148,22 +127,6 @@ export default {
     sections.forEach((section) => {
       observer.observe(section);
     });
-  },
-  methods: {
-    layering() {
-      ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function () {
-          gsap.utils.toArray("section").forEach((section) => {
-            ScrollTrigger.create({
-              trigger: section,
-              start: "top top",
-              pin: true,
-              pinSpacing: false,
-            });
-          });
-        },
-      });
-    },
   },
 };
 </script>
@@ -207,6 +170,7 @@ section {
   min-height: 100vh;
   background: var(--brand-light);
   padding-top: 100px;
+  padding-bottom: 50px;
 }
 .sec-header {
   font-weight: 600;
