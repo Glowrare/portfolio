@@ -1,7 +1,12 @@
 <template>
   <purple-bg sectionId="contact">
     <h2 class="sec-header fade-from-left">Where you can reach me.</h2>
-    <form action="" class="contact-form">
+    <form
+      @submit.prevent="
+        $emit('submit-handler', { name: name, email: email, message: message })
+      "
+      class="contact-form"
+    >
       <div class="row">
         <div class="col-12 col-lg-6">
           <div class="mb-5 form-floating fade-from-right">
@@ -11,6 +16,7 @@
               id="name"
               placeholder="Name"
               required
+              v-model.trim="name"
             />
             <label for="name" class="form-label app-label">Name</label>
           </div>
@@ -21,6 +27,7 @@
               id="email"
               placeholder="name@example.com"
               required
+              v-model.trim="email"
             />
             <label for="email" class="form-label app-label">Email</label>
           </div>
@@ -30,6 +37,7 @@
               id="message"
               rows="3"
               placeholder="Message"
+              v-model.trim="message"
               required
             ></textarea>
             <label for="message" class="form-label app-label visually-hidden"
@@ -45,13 +53,53 @@
         </div>
       </div>
     </form>
+    <FormSpinner v-if="loading" />
   </purple-bg>
 </template>
 
 <script>
 import PurpleBg from "../ui/PurpleBg.vue";
+import FormSpinner from "../dialog/FormSpinner.vue";
+
+// const FORMSPARK_ACTION_URL = "https://submit-form.com/nA3zyAi1";
+
 export default {
-  components: { PurpleBg },
+  components: { PurpleBg, FormSpinner },
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  emits: ["submit-handler"],
+  props: ["success", "loading"],
+  watch: {
+    success(val) {
+      if (val) {
+        this.name = "";
+        this.email = "";
+        this.message = "";
+      }
+    },
+  },
+  // methods: {
+  //   async submitHandler() {
+  //     await fetch(FORMSPARK_ACTION_URL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         name: this.name,
+  //         email: this.email,
+  //         message: this.message,
+  //       }),
+  //     });
+  //     alert("Form submitted");
+  //   },
+  // },
 };
 </script>
 

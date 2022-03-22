@@ -6,9 +6,14 @@
     <Welcome />
     <Skills />
     <Portfolio :projects="projects" />
-    <Contact />
+    <Contact
+      @submit-handler="submitHandler"
+      :success="success"
+      :loading="loading"
+    />
   </main>
   <TheFooter />
+  <Dialog :success="success" ref="modalParent" />
 </template>
 
 <script>
@@ -20,6 +25,9 @@ import Portfolio from "./components/sections/Portfolio.vue";
 import Contact from "./components/sections/Contact.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
 import ThemeSwitch from "./components/switch/ThemeSwitch.vue";
+import Dialog from "./components/dialog/Dialog.vue";
+
+const FORMSPARK_ACTION_URL = "https://submit-form.com/nA3zyAi1";
 
 export default {
   name: "App",
@@ -32,6 +40,7 @@ export default {
     Contact,
     TheFooter,
     ThemeSwitch,
+    Dialog,
   },
   data() {
     return {
@@ -106,6 +115,11 @@ export default {
         },
       ],
       lightTheme: true,
+
+      active: false,
+      show: false,
+      success: null,
+      loading: false,
     };
   },
   mounted() {
@@ -154,6 +168,29 @@ export default {
     changeTheme() {
       this.lightTheme = !this.lightTheme;
     },
+    async submitHandler(name, email, message) {
+      this.loading = true;
+      this.success = false;
+      const response = await fetch(FORMSPARK_ACTION_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+        }),
+      });
+
+      this.loading = false;
+
+      if (response.ok) {
+        this.success = true;
+        this.$refs.modalParent.showModal();
+      } else this.success = false;
+    },
   },
 };
 </script>
@@ -169,6 +206,8 @@ export default {
 
   --theme-light: #f5f5f5;
   --theme-clr: #711a75;
+
+  --overlay-bg: #701a7594;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -182,9 +221,14 @@ export default {
   --brand-dark-alt: #e2d784;
   --brand-dark: #f5f5f5;
   --brand-light: #180a0a;
+
+  --overlay-bg: #f5f5f57a;
 }
 html {
   font-size: 10px;
+}
+body.modal-open {
+  overflow: hidden;
 }
 #app {
   font-family: "Khand", sans-serif;
