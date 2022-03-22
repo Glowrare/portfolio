@@ -123,30 +123,31 @@ export default {
       ],
     };
   },
-  beforeCreate() {
-    console.log("beforeCreate");
-  },
-  created() {
-    console.log("created");
-  },
-  beforeMount() {
-    console.log("beforeMount");
-  },
   mounted() {
     console.log("mounted");
-    this.layering();
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate");
-  },
-  updated() {
-    console.log("updated");
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount");
-  },
-  unmounted() {
-    console.log("unmounted");
+    // this.layering();
+    const sections = document.querySelectorAll("section");
+
+    const options = {
+      root: null, //it is the viewport
+      threshold: 0, //0 to 1
+      rootMargin: "-50px",
+    };
+
+    // eslint-disable-next-line no-unused-vars
+    const observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animation");
+        } else {
+          entry.target.classList.remove("animation");
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
   },
   methods: {
     layering() {
@@ -211,5 +212,71 @@ section {
   font-weight: 600;
   font-size: 72px;
   font-size: clamp(48px, 4rem + 2.5vw, 72px);
+  position: relative;
+}
+section.animation .fade-in,
+section.animation .fade-from-top,
+section.animation .fade-from-bottom,
+section.animation .fade-from-left,
+section.animation .fade-from-right {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+section.animation .fade-in {
+  animation-name: fade-in;
+}
+section.animation .fade-from-top {
+  animation-name: fade-from-top;
+}
+section.animation .fade-from-bottom {
+  animation-name: fade-from-bottom;
+}
+section.animation .fade-from-left {
+  animation-name: fade-from-left;
+}
+section.animation .fade-from-right {
+  animation-name: fade-from-right;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-from-bottom {
+  0% {
+    bottom: -50px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes fade-from-top {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes fade-from-left {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes fade-from-right {
+  0% {
+    right: -100px;
+  }
+  100% {
+    right: 0;
+  }
 }
 </style>

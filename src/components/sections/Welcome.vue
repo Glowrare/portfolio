@@ -2,7 +2,15 @@
   <section id="about" class="about-me d-flex align-items-center">
     <container>
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-3 text-center order-1 order-lg-0">
+        <div
+          class="
+            col-12 col-lg-3
+            text-center
+            order-1 order-lg-0
+            position-relative
+            fade-in
+          "
+        >
           <img
             src="@/assets/bio-image.png"
             alt="Ajibolanle"
@@ -11,10 +19,14 @@
         </div>
         <div class="col-12 col-lg-6 col-md-8">
           <div class="mb-4 mb-md-5">
-            <h1 class="title mb-0 lh-1 fw-bold">I am Ajibolanle</h1>
-            <p class="subtitle mb-0 lh-1">Frontend Developer</p>
+            <h1 class="title mb-0 lh-1 fw-bold fade-from-top position-relative">
+              I am Ajibolanle
+            </h1>
+            <p class="subtitle mb-0 lh-1 fade-from-right position-relative">
+              Frontend Developer
+            </p>
           </div>
-          <div class="desc-box">
+          <div class="desc-box fade-from-bottom position-relative">
             <p>
               One of the reasons I love coding makes it possible to bring ideas
               to life.

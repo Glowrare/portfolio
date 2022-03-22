@@ -18,10 +18,10 @@
 
 <style scoped>
 footer {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   background: var(--brand-light);
   font-size: 36px;
   font-size: clamp(24px, 2rem + 1vw, 36px);

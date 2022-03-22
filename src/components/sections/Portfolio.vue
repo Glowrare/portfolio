@@ -1,7 +1,7 @@
 <template>
   <section id="portfolio">
     <container>
-      <h2 class="sec-header">What I have done.</h2>
+      <h2 class="sec-header fade-from-left">What I have done.</h2>
       <div class="desc-slider mb-5">
         <vueper-slides
           ref="descriptionSlider"

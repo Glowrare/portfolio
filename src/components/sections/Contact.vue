@@ -1,6 +1,6 @@
 <template>
   <purple-bg sectionId="contact">
-    <h2 class="sec-header">Where you can reach me.</h2>
+    <h2 class="sec-header fade-from-left">Where you can reach me.</h2>
     <form action="">
       <div class="row">
         <div class="col-12 col-lg-6">
