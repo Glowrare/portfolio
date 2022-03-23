@@ -50,9 +50,25 @@
                 emit: false,
               })
           "
-          :gap="2.5"
+          :gap="1.5"
           class="no-shadow slider-container--list fade-from-bottom"
+          style="margin: 0 30px"
         >
+          <template #arrow-left>
+            <img
+              src="@/assets/arrow-left.svg"
+              alt=""
+              class="img-fluid slide-arrow slide-arrow--left"
+            />
+          </template>
+
+          <template #arrow-right>
+            <img
+              src="@/assets/arrow-right.svg"
+              alt=""
+              class="img-fluid slide-arrow slide-arrow--right"
+            />
+          </template>
           <vueper-slide
             v-for="(project, i) in projects"
             :key="i"
@@ -156,6 +172,46 @@ export default {
   background: var(--brand-light);
   color: var(--brand-dark);
   border-radius: 15px;
+}
+.vueperslide:not(.vueperslide--active)
+  .vueperslide__content-wrapper.list__wrapper {
+  opacity: 0.7;
+}
+.vueperslide--active .vueperslide__content-wrapper.list__wrapper {
+  box-shadow: var(--overlay-bg) 6px 16px 4px;
+}
+/* Arrows */
+.slide-arrow {
+  width: 50px;
+  position: relative;
+}
+.darkmode .slide-arrow {
+  filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg)
+    brightness(95%) contrast(86%);
+}
+.slide-arrow.slide-arrow--right {
+  right: -20px;
+}
+.slide-arrow.slide-arrow--left {
+  left: -20px;
+}
+@media only screen and (max-width: 992px) {
+  .list__wrapper h3 {
+    font-size: 24px;
+  }
+  .list__wrapper ul li {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 581px) {
+  .slide-arrow {
+    filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg)
+      brightness(95%) contrast(86%);
+    /* position: static; */
+  }
+  .darkmode .slide-arrow {
+    filter: none;
+  }
 }
 @media only screen and (max-width: 480px) {
   .desc__wrapper,

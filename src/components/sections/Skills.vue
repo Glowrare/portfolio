@@ -2,7 +2,7 @@
   <purple-bg sectionId="skills">
     <h2 class="sec-header fade-from-left">What I know.</h2>
     <div class="row justify-content-between">
-      <div class="col-3 d-none d-lg-block fade-from-left position-relative">
+      <div class="col-3 d-none d-lg-block fade-from-bottom position-relative">
         <img src="@/assets/humaans.svg" alt="" class="img-fluid" />
       </div>
       <div class="col-lg-7 col-12 position-relative fade-in">

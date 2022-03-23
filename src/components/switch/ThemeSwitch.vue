@@ -27,7 +27,7 @@ export default {
 <style scoped>
 div {
   position: fixed;
-  right: 100px;
+  right: 50px;
   top: 50%;
   cursor: pointer;
   z-index: 3;

@@ -84,7 +84,7 @@ export default {
           name: "Function Simulator",
           image: "",
           desc: "Function Simulator is open source project created to write custom vanilla JS function logic to mimic diverse JS methods.",
-          langs: ["HTML", "CSS", "Javascript"],
+          langs: ["HTML", "CSS", "JS"],
           links: [
             {
               type: "Live site",

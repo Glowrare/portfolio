@@ -121,6 +121,11 @@ textarea.app-textarea {
   font-size: 36px;
   font-size: clamp(24px, 2rem + 1vw, 36px);
 }
+.app-input:focus,
+textarea.app-textarea:focus {
+  border-color: var(--brand-light-alt);
+  box-shadow: none;
+}
 
 ::placeholder,
 .app-label {
