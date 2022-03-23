@@ -22,7 +22,7 @@
             <template #content>
               <div class="vueperslide__content-wrapper desc__wrapper p-3">
                 <div class="vueperslide__title desc__wrapper-title">
-                  {{ project.desc }}
+                  <p class="m-0">{{ project.desc }}</p>
                 </div>
                 <ul class="desc__wrapper-links mt-3">
                   <li v-for="(link, i) in project.links" :key="i">
@@ -143,9 +143,6 @@ export default {
   display: inherit;
   border-radius: 30px;
 }
-.slider-container--list {
-  /* height: 500px; */
-}
 .list__wrapper {
   background: var(--brand-dark);
   color: var(--brand-light);
@@ -159,5 +156,11 @@ export default {
   background: var(--brand-light);
   color: var(--brand-dark);
   border-radius: 15px;
+}
+@media only screen and (max-width: 480px) {
+  .desc__wrapper,
+  .desc__wrapper .desc__wrapper-links li {
+    font-size: 18px;
+  }
 }
 </style>

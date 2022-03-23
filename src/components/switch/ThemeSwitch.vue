@@ -30,5 +30,15 @@ div {
   right: 100px;
   top: 50%;
   cursor: pointer;
+  z-index: 3;
+}
+@media only screen and (max-width: 768px) {
+  div {
+    right: 15px;
+    top: 80px;
+  }
+  img {
+    width: 30px;
+  }
 }
 </style>

@@ -27,6 +27,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="pageNavigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#pageNavigation"
+          aria-controls="pageNavigation"
+          aria-expanded="false"
+          aria-label="Close navigation"
+        >
+          <span class="navbar-toggler-icon navbar-close-icon"></span>
+        </button>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-items">
           <li class="nav-item">
             <a class="nav-link" href="#about">Home</a>
@@ -84,5 +95,55 @@ nav {
 .navbar .menu-items li a:hover {
   color: var(--brand-dark);
   text-decoration: underline;
+}
+.navbar .navbar-toggler {
+  border: none;
+}
+.navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-toggler-icon {
+  background-image: url("~@/assets/nav-toggle.svg");
+  width: 30px;
+  height: 30px;
+}
+.darkmode .navbar-toggler-icon:not(.navbar-close-icon) {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg)
+    brightness(105%) contrast(102%);
+}
+.navbar-toggler-icon.navbar-close-icon {
+  background-image: url("~@/assets/nav-close.svg");
+}
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    background: #711a75;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 20px 30px;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 10px 4px;
+  }
+  .darkmode .navbar-collapse {
+    background: #000000;
+  }
+  .navbar-collapse::before {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    background: var(--overlay-bg);
+    z-index: -1;
+  }
+  .navbar .menu-items li a {
+    color: #ffffff;
+    font-weight: 500;
+  }
+  .navbar .menu-items li a:hover {
+    color: var(--brand-light);
+    text-decoration: underline;
+  }
 }
 </style>
