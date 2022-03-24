@@ -35,21 +35,24 @@
           aria-controls="pageNavigation"
           aria-expanded="false"
           aria-label="Close navigation"
+          ref="closeNav"
         >
           <span class="navbar-toggler-icon navbar-close-icon"></span>
         </button>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-items">
           <li class="nav-item">
-            <a class="nav-link" href="#about">Home</a>
+            <a class="nav-link" href="#about" @click="closeNav">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#skills" @click="closeNav">Skills</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Portfolio</a>
+            <a class="nav-link" href="#portfolio" @click="closeNav"
+              >Portfolio</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact" @click="closeNav">Contact</a>
           </li>
         </ul>
       </div>
@@ -60,6 +63,11 @@
 <script>
 export default {
   props: ["lightTheme"],
+  methods: {
+    closeNav() {
+      if (window.innerWidth <= 992) this.$refs.closeNav.click();
+    },
+  },
 };
 </script>
 
@@ -92,6 +100,7 @@ nav {
   color: var(--brand-dark);
   font-weight: 500;
 }
+.navbar .menu-items li a:focus,
 .navbar .menu-items li a:hover {
   color: var(--brand-dark);
   text-decoration: underline;
@@ -141,8 +150,9 @@ nav {
     color: #ffffff;
     font-weight: 500;
   }
+  .navbar .menu-items li a:focus,
   .navbar .menu-items li a:hover {
-    color: var(--brand-light);
+    color: var(--theme-light);
     text-decoration: underline;
   }
 }
