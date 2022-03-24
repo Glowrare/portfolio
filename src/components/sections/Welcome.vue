@@ -39,9 +39,6 @@
 </template>
 
 <style scoped>
-.about-me {
-  height: 100vh;
-}
 .title {
   color: var(--brand-dark-alt);
   font-size: 96px;
