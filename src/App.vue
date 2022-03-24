@@ -123,6 +123,8 @@ export default {
     };
   },
   mounted() {
+    document.title = "I am Ajibolanle - Welcome to my personal site";
+
     const sections = document.querySelectorAll("section");
 
     const options = {
