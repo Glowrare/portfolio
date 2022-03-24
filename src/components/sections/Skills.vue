@@ -74,29 +74,9 @@
 
 <script>
 import PurpleBg from "../ui/PurpleBg.vue";
-// import Humaans from "../../assets/humaans.svg";
-// import HTMLLogo from "../../assets/html-icon.svg";
-// import CSSLogo from "../../assets/css-icon.svg";
-// import JavascriptLogo from "../../assets/javascript-icon.svg";
-// import GitLogo from "../../assets/git-icon.svg";
-// import BootstrapLogo from "../../assets/bootstrap-icon.svg";
-// import SassLogo from "../../assets/sass-icon.svg";
-// import ReactLogo from "../../assets/react-icon.svg";
-// import VueLogo from "../../assets/vue-icon.svg";
-// import JQueryLogo from "../../assets/jquery-icon.svg";
 export default {
   components: {
     PurpleBg,
-    // Humaans,
-    // HTMLLogo,
-    // CSSLogo,
-    // JavascriptLogo,
-    // GitLogo,
-    // BootstrapLogo,
-    // SassLogo,
-    // ReactLogo,
-    // VueLogo,
-    // JQueryLogo,
   },
 };
 </script>

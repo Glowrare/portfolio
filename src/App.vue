@@ -126,8 +126,8 @@ export default {
     const sections = document.querySelectorAll("section");
 
     const options = {
-      root: null, //it is the viewport
-      threshold: 0, //0 to 1
+      root: null,
+      threshold: 0,
       rootMargin: "-50px",
     };
 

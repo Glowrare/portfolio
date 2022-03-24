@@ -1,7 +1,7 @@
 <template>
   <footer class="py-4">
     <container>
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
         <div><span>Ajibolanle | Copyright 2022</span></div>
         <div>
           <a href="https://github.com/Glowrare" target="_blank" class="me-5"

@@ -11,7 +11,6 @@ export default {
   },
   methods: {
     progress() {
-      // gsap.registerPlugin(ScrollTrigger);
       gsap.to("progress", {
         value: 100,
         ease: "none",
@@ -30,7 +29,7 @@ progress {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 15px;
+  height: 5px;
   border: none;
   background: transparent;
   z-index: 1000;

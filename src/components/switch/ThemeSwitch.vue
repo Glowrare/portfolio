@@ -2,14 +2,14 @@
   <div @click="$emit('changeTheme')">
     <img
       src="@/assets/switch-light.svg"
-      alt="react"
+      alt=""
       class="img-fluid"
       aria-label="Turn on dark Mode"
       v-if="lightTheme"
     />
     <img
       src="@/assets/switch-dark.svg"
-      alt="react"
+      alt=""
       class="img-fluid"
       aria-label="Turn on light Mode"
       v-else

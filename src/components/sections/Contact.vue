@@ -61,8 +61,6 @@
 import PurpleBg from "../ui/PurpleBg.vue";
 import FormSpinner from "../dialog/FormSpinner.vue";
 
-// const FORMSPARK_ACTION_URL = "https://submit-form.com/nA3zyAi1";
-
 export default {
   components: { PurpleBg, FormSpinner },
   data() {
@@ -83,23 +81,6 @@ export default {
       }
     },
   },
-  // methods: {
-  //   async submitHandler() {
-  //     await fetch(FORMSPARK_ACTION_URL, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         name: this.name,
-  //         email: this.email,
-  //         message: this.message,
-  //       }),
-  //     });
-  //     alert("Form submitted");
-  //   },
-  // },
 };
 </script>
 

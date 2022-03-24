@@ -23,4 +23,7 @@ section {
   background: var(--theme-clr);
   color: var(--theme-light);
 }
+.darkmode section {
+  background: #2e2323;
+}
 </style>
