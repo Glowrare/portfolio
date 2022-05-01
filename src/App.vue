@@ -54,7 +54,7 @@ export default {
           links: [
             {
               type: "Live site",
-              url: "http://love-guage.netlify.app/",
+              url: "https://love-guage.netlify.app/",
             },
             {
               type: "Repo",
@@ -71,11 +71,11 @@ export default {
           links: [
             {
               type: "Live site",
-              url: "http://love-guage.netlify.app/",
+              url: "https://glowrare.github.io/Hero-FInder/",
             },
             {
               type: "Repo",
-              url: "https://github.com/Glowrare/love-guage",
+              url: "https://github.com/Glowrare/Hero-FInder",
             },
           ],
         },
