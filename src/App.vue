@@ -6,31 +6,27 @@
     <Welcome />
     <Skills />
     <Portfolio :projects="projects" />
-    <Contact
-      @submit-handler="submitHandler"
-      :success="success"
-      :loading="loading"
-    />
+    <Contact @submit-handler="submitHandler" :success="success" :loading="loading" />
   </main>
   <TheFooter />
   <Dialog :success="success" ref="modalParent" />
 </template>
 
 <script>
-import Progress from "./components/ui/Progress.vue";
-import TheHeader from "./components/layout/TheHeader.vue";
-import Welcome from "./components/sections/Welcome.vue";
-import Skills from "./components/sections/Skills.vue";
-import Portfolio from "./components/sections/Portfolio.vue";
-import Contact from "./components/sections/Contact.vue";
-import TheFooter from "./components/layout/TheFooter.vue";
-import ThemeSwitch from "./components/switch/ThemeSwitch.vue";
-import Dialog from "./components/dialog/Dialog.vue";
+import Progress from './components/ui/Progress.vue';
+import TheHeader from './components/layout/TheHeader.vue';
+import Welcome from './components/sections/Welcome.vue';
+import Skills from './components/sections/Skills.vue';
+import Portfolio from './components/sections/Portfolio.vue';
+import Contact from './components/sections/Contact.vue';
+import TheFooter from './components/layout/TheFooter.vue';
+import ThemeSwitch from './components/switch/ThemeSwitch.vue';
+import Dialog from './components/dialog/Dialog.vue';
 
-const FORMSPARK_ACTION_URL = "https://submit-form.com/nA3zyAi1";
+const FORMSPARK_ACTION_URL = 'https://submit-form.com/nA3zyAi1';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Progress,
     TheHeader,
@@ -46,70 +42,83 @@ export default {
     return {
       projects: [
         {
-          id: 1,
-          name: "Love Guage",
-          image: "",
-          desc: "Love Guage is a responsive web app to check love compatibility score for couples using Love Calculator API. With love guage, you can export the csv data for your previous checks in the history page.",
-          langs: ["React"],
+          id: 5,
+          name: 'Wazobia Commerce',
+          image: '',
+          desc: "A demo eCommerce shopping store where customers can browse a catalogue of store's inventory to select items to cart and checkout either as guest or registered users with a payment gateway (Paypal sandbox).",
+          langs: ['React', 'Context API', 'Firebase'],
           links: [
             {
-              type: "Live site",
-              url: "https://love-guage.netlify.app/",
-            },
-            {
-              type: "Repo",
-              url: "https://github.com/Glowrare/love-guage",
-            },
-          ],
-        },
-        {
-          id: 2,
-          name: "Hero Finder",
-          image: "",
-          desc: "Search for superheroes and villains across various universe to generate a downloadable magazine cover and get details about their biography, powerstats, connections, appearance & work.",
-          langs: ["Vue", "Vuex"],
-          links: [
-            {
-              type: "Live site",
-              url: "https://glowrare.github.io/Hero-FInder/",
-            },
-            {
-              type: "Repo",
-              url: "https://github.com/Glowrare/Hero-FInder",
-            },
-          ],
-        },
-        {
-          id: 3,
-          name: "Function Simulator",
-          image: "",
-          desc: "Function Simulator is open source project created to write custom vanilla JS function logic to mimic diverse JS methods.",
-          langs: ["HTML", "CSS", "JS"],
-          links: [
-            {
-              type: "Live site",
-              url: "https://function-simulator.netlify.app/",
-            },
-            {
-              type: "Repo",
-              url: "https://github.com/Glowrare/Function-Simulator",
+              type: 'Live site',
+              url: 'https://wazobia-e-commerce.netlify.app/',
             },
           ],
         },
         {
           id: 4,
-          name: "Tic tac Toe game",
-          image: "",
-          desc: "A fun multiplayer Tic Tac Toe Game with Vue.js. You get the option to pick the theme for your board.",
-          langs: ["Vue"],
+          name: 'Love Guage',
+          image: '',
+          desc: 'Love Guage is a responsive web app to check love compatibility score for couples using Love Calculator API. With love guage, you can export the csv data for your previous checks in the history page.',
+          langs: ['React'],
           links: [
             {
-              type: "Live site",
-              url: "https://funtictactoe.netlify.app/",
+              type: 'Live site',
+              url: 'https://love-guage.netlify.app/',
             },
             {
-              type: "Repo",
-              url: "https://github.com/Glowrare/Tic-Tac-Toe-Game",
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/love-guage',
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: 'Hero Finder',
+          image: '',
+          desc: 'Search for superheroes and villains across various universe to generate a downloadable magazine cover and get details about their biography, powerstats, connections, appearance & work.',
+          langs: ['Vue', 'Vuex'],
+          links: [
+            {
+              type: 'Live site',
+              url: 'https://glowrare.github.io/Hero-FInder/',
+            },
+            {
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/Hero-FInder',
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: 'Function Simulator',
+          image: '',
+          desc: 'Function Simulator is open source project created to write custom vanilla JS function logic to mimic diverse JS methods.',
+          langs: ['HTML', 'CSS', 'JS'],
+          links: [
+            {
+              type: 'Live site',
+              url: 'https://function-simulator.netlify.app/',
+            },
+            {
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/Function-Simulator',
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: 'Tic tac Toe game',
+          image: '',
+          desc: 'A fun multiplayer Tic Tac Toe Game with Vue.js. You get the option to pick the theme for your board.',
+          langs: ['Vue'],
+          links: [
+            {
+              type: 'Live site',
+              url: 'https://funtictactoe.netlify.app/',
+            },
+            {
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/Tic-Tac-Toe-Game',
             },
           ],
         },
@@ -123,23 +132,23 @@ export default {
     };
   },
   mounted() {
-    document.title = "I am Ajibolanle - Welcome to my personal site";
+    document.title = 'I am Ajibolanle - Welcome to my personal site';
 
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll('section');
 
     const options = {
       root: null,
       threshold: 0,
-      rootMargin: "-50px",
+      rootMargin: '-50px',
     };
 
     // eslint-disable-next-line no-unused-vars
     const observer = new IntersectionObserver(function (entries, observer) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("animation");
+          entry.target.classList.add('animation');
         } else {
-          entry.target.classList.remove("animation");
+          entry.target.classList.remove('animation');
         }
       });
     }, options);
@@ -149,20 +158,20 @@ export default {
     });
   },
   created() {
-    let darkMode = localStorage.getItem("darkMode");
-    if (darkMode === "enabled") {
+    let darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
       this.lightTheme = false;
     }
   },
   watch: {
     lightTheme(newVal) {
-      const app = document.getElementById("app");
+      const app = document.getElementById('app');
       if (!newVal) {
-        app.classList.add("darkmode");
-        localStorage.setItem("darkMode", "enabled");
+        app.classList.add('darkmode');
+        localStorage.setItem('darkMode', 'enabled');
       } else {
-        app.classList.remove("darkmode");
-        localStorage.setItem("darkMode", null);
+        app.classList.remove('darkmode');
+        localStorage.setItem('darkMode', null);
       }
     },
   },
@@ -174,10 +183,10 @@ export default {
       this.loading = true;
       this.success = false;
       const response = await fetch(FORMSPARK_ACTION_URL, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           name: name,
@@ -198,7 +207,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
 
 :root {
   --brand-dark-alt: #180a0a;
@@ -233,7 +242,7 @@ body.modal-open {
   overflow: hidden;
 }
 #app {
-  font-family: "Khand", sans-serif;
+  font-family: 'Khand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--brand-light);
