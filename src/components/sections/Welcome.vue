@@ -15,7 +15,7 @@
             <p class="subtitle mb-0 lh-1 fade-from-right position-relative">Frontend Developer</p>
           </div>
           <div class="desc-box fade-from-bottom position-relative">
-            <p>One of the reasons I love coding is that coding makes it possible to bring ideas to life.</p>
+            <p>Unleashing boundless creativity, one line of code at a time.</p>
           </div>
         </div>
       </div></container
