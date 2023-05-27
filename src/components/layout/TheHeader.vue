@@ -142,11 +142,13 @@ nav {
   .navbar .menu-items li a {
     color: #ffffff;
     font-weight: 500;
+    display: inline-block;
   }
+  .navbar .menu-items li.active a,
   .navbar .menu-items li a:focus,
   .navbar .menu-items li a:hover {
     color: var(--theme-light);
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 }
 </style>

@@ -2,8 +2,9 @@
   <Progress />
   <TheHeader :lightTheme="lightTheme" :activeSection="activeSection" />
   <ThemeSwitch @changeTheme="changeTheme" :lightTheme="lightTheme" />
+  <Sequence />
   <main>
-    <Welcome />
+    <Welcome :lightTheme="lightTheme" />
     <Skills />
     <Portfolio :projects="projects" />
     <Contact @submit-handler="submitHandler" :success="success" :loading="loading" />
@@ -22,6 +23,7 @@ import Contact from './components/sections/Contact.vue';
 import TheFooter from './components/layout/TheFooter.vue';
 import ThemeSwitch from './components/switch/ThemeSwitch.vue';
 import Dialog from './components/dialog/Dialog.vue';
+import Sequence from './components/ui/Sequence.vue';
 
 const FORMSPARK_ACTION_URL = 'https://submit-form.com/nA3zyAi1';
 
@@ -37,6 +39,7 @@ export default {
     TheFooter,
     ThemeSwitch,
     Dialog,
+    Sequence,
   },
   data() {
     return {
