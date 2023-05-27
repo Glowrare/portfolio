@@ -9,7 +9,7 @@
     <Portfolio :projects="projects" />
     <Contact @submit-handler="submitHandler" :success="success" :loading="loading" />
   </main>
-  <TheFooter />
+  <TheFooter :lightTheme="lightTheme" />
   <Dialog :success="success" ref="modalParent" />
 </template>
 

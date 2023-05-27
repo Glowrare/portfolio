@@ -29,55 +29,98 @@ export default {
   overflow: hidden;
   pointer-events: none;
   user-select: none;
+  border-left: 4px solid var(--brand-light-alt);
 }
 .fib-wrapper {
   display: flex;
   flex-direction: column;
   font-size: 2rem;
   text-align: center;
-  gap: 10px;
+  gap: 20px;
 
-  -moz-animation: my-animation 30s linear infinite;
-  -webkit-animation: my-animation 30s linear infinite;
-  animation: my-animation 30s linear infinite;
+  -moz-animation: top-down-scroll 15s alternate infinite;
+  -webkit-animation: top-down-scroll 15s alternate infinite;
+  animation: top-down-scroll 15s alternate infinite;
 }
 
 @media screen and (max-width: 768px) {
   .fib-container {
-    display: none;
+    border: none;
+    border-top: 4px solid var(--brand-light-alt);
+    top: auto;
+    left: 0;
+    z-index: 5;
+    padding-top: 5px;
+  }
+
+  .fib-wrapper {
+    flex-direction: row;
+
+    -moz-animation: left-right-scroll 15s alternate infinite;
+    -webkit-animation: left-right-scroll 15s alternate infinite;
+    animation: left-right-scroll 15s alternate infinite;
   }
 }
 
-/* for Firefox */
-@-moz-keyframes my-animation {
+@-moz-keyframes top-down-scroll {
   from {
-    -moz-transform: translateY(0%);
+    -moz-transform: translate(0, 25%);
   }
   to {
-    -moz-transform: translateY(-100%);
+    -moz-transform: translate(0, -25%);
   }
 }
 
-/* for Chrome */
-@-webkit-keyframes my-animation {
+@-webkit-keyframes top-down-scroll {
   from {
-    -webkit-transform: translateY(0%);
+    -webkit-transform: translate(0, 25%);
   }
   to {
-    -webkit-transform: translateY(-100%);
+    -webkit-transform: translate(0, -25%);
   }
 }
 
-@keyframes my-animation {
+@keyframes top-down-scroll {
   from {
-    -moz-transform: translateY(0%);
-    -webkit-transform: translateY(1000%);
-    transform: translateY(0%);
+    -moz-transform: translate(0, 25%);
+    -webkit-transform: translate(0, 25%);
+    transform: translate(0, 25%);
   }
   to {
-    -moz-transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
+    -moz-transform: translate(0, -25%);
+    -webkit-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+  }
+}
+
+@-moz-keyframes left-right-scroll {
+  from {
+    -moz-transform: translate(0, 100%);
+  }
+  to {
+    -moz-transform: translate(0, -100%);
+  }
+}
+
+@-webkit-keyframes left-right-scroll {
+  from {
+    -webkit-transform: translate(100%, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+  }
+}
+
+@keyframes left-right-scroll {
+  from {
+    -moz-transform: translate(100%, 0);
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+  }
+  to {
+    -moz-transform: translate(-100%, 0);
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
 }
 </style>
