@@ -9,60 +9,36 @@
         <div class="row text-center">
           <div class="col-12 col-sm-6">
             <div class="row g-4">
-              <div class="col-6">
-                <img
-                  src="@/assets/html-icon.svg"
-                  alt="html"
-                  class="img-fluid"
-                />
+              <div class="col-6" title="HTML">
+                <img src="@/assets/html-icon.svg" alt="html" class="img-fluid" />
               </div>
-              <div class="col-6">
+              <div class="col-6" title="CSS">
                 <img src="@/assets/css-icon.svg" alt="css" class="img-fluid" />
               </div>
-              <div class="col-6">
+              <div class="col-6" title="Git">
                 <img src="@/assets/git-icon.svg" alt="git" class="img-fluid" />
               </div>
-              <div class="col-6">
-                <img
-                  src="@/assets/javascript-icon.svg"
-                  alt="javascript"
-                  class="img-fluid"
-                />
+              <div class="col-6" title="JavaScript">
+                <img src="@/assets/javascript-icon.svg" alt="javascript" class="img-fluid" />
               </div>
             </div>
           </div>
           <div class="col-12 col-sm-6">
             <div class="row g-4">
-              <div class="col-6">
-                <img
-                  src="@/assets/bootstrap-icon.svg"
-                  alt="bootstrap"
-                  class="img-fluid"
-                />
+              <div class="col-6" title="Bootstrap">
+                <img src="@/assets/bootstrap-icon.svg" alt="bootstrap" class="img-fluid" />
               </div>
-              <div class="col-6">
-                <img
-                  src="@/assets/sass-icon.svg"
-                  alt="sass"
-                  class="img-fluid"
-                />
+              <div class="col-6" title="SASS/SCSS">
+                <img src="@/assets/sass-icon.svg" alt="sass" class="img-fluid" />
               </div>
-              <div class="col-6">
-                <img
-                  src="@/assets/react-icon.svg"
-                  alt="react"
-                  class="img-fluid"
-                />
+              <div class="col-6" title="React.js">
+                <img src="@/assets/react-icon.svg" alt="react" class="img-fluid" />
               </div>
-              <div class="col-6">
+              <div class="col-6" title="Vue.js">
                 <img src="@/assets/vue-icon.svg" alt="vue" class="img-fluid" />
               </div>
-              <div class="col-12">
-                <img
-                  src="@/assets/jquery-icon.svg"
-                  alt="jquery"
-                  class="img-fluid"
-                />
+              <div class="col-12" title="jQuery">
+                <img src="@/assets/jquery-icon.svg" alt="jquery" class="img-fluid" />
               </div>
             </div>
           </div>
@@ -73,7 +49,7 @@
 </template>
 
 <script>
-import PurpleBg from "../ui/PurpleBg.vue";
+import PurpleBg from '../ui/PurpleBg.vue';
 export default {
   components: {
     PurpleBg,

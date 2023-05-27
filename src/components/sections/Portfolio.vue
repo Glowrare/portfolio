@@ -26,9 +26,7 @@
                 </div>
                 <ul class="desc__wrapper-links mt-3">
                   <li v-for="(link, i) in project.links" :key="i">
-                    <a :href="link.url" target="_blank" class="py-1 px-4">{{
-                      link.type
-                    }}</a>
+                    <a :href="link.url" target="_blank" class="py-1 px-4">{{ link.type }}</a>
                   </li>
                 </ul>
               </div>
@@ -55,34 +53,18 @@
           style="margin: 0 30px"
         >
           <template #arrow-left>
-            <img
-              src="@/assets/arrow-left.svg"
-              alt=""
-              class="img-fluid slide-arrow slide-arrow--left"
-            />
+            <img src="@/assets/arrow-left.svg" alt="" class="img-fluid slide-arrow slide-arrow--left" />
           </template>
 
           <template #arrow-right>
-            <img
-              src="@/assets/arrow-right.svg"
-              alt=""
-              class="img-fluid slide-arrow slide-arrow--right"
-            />
+            <img src="@/assets/arrow-right.svg" alt="" class="img-fluid slide-arrow slide-arrow--right" />
           </template>
-          <vueper-slide
-            v-for="(project, i) in projects"
-            :key="i"
-            @click="$refs.listSlider && $refs.listSlider.goToSlide(i)"
-          >
+          <vueper-slide v-for="(project, i) in projects" :key="i" @click="$refs.listSlider && $refs.listSlider.goToSlide(i)">
             <template #content>
               <div class="vueperslide__content-wrapper list__wrapper">
                 <h3 class="vueperslide__title">{{ project.name }}</h3>
                 <ul>
-                  <li
-                    v-for="(lang, i) in project.langs"
-                    :key="i"
-                    class="py-1 px-4"
-                  >
+                  <li v-for="(lang, i) in project.langs" :key="i" class="py-1 px-4">
                     {{ lang }}
                   </li>
                 </ul>
@@ -95,10 +77,10 @@
   </section>
 </template>
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
 export default {
-  props: ["projects"],
+  props: ['projects'],
   components: { VueperSlides, VueperSlide },
   data() {
     return {
@@ -173,8 +155,7 @@ export default {
   color: var(--brand-dark);
   border-radius: 15px;
 }
-.vueperslide:not(.vueperslide--active)
-  .vueperslide__content-wrapper.list__wrapper {
+.vueperslide:not(.vueperslide--active) .vueperslide__content-wrapper.list__wrapper {
   opacity: 0.7;
 }
 .vueperslide--active .vueperslide__content-wrapper.list__wrapper {
@@ -182,12 +163,11 @@ export default {
 }
 /* Arrows */
 .slide-arrow {
-  width: 50px;
+  max-width: 50px;
   position: relative;
 }
 .darkmode .slide-arrow {
-  filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg)
-    brightness(95%) contrast(86%);
+  filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg) brightness(95%) contrast(86%);
 }
 .slide-arrow.slide-arrow--right {
   right: -20px;
@@ -203,20 +183,20 @@ export default {
     font-size: 18px;
   }
 }
-@media only screen and (max-width: 581px) {
-  .slide-arrow {
-    filter: invert(87%) sepia(49%) saturate(364%) hue-rotate(354deg)
-      brightness(95%) contrast(86%);
-    /* position: static; */
-  }
-  .darkmode .slide-arrow {
-    filter: none;
-  }
-}
 @media only screen and (max-width: 480px) {
+  .desc__wrapper {
+    border-width: 5px;
+  }
   .desc__wrapper,
   .desc__wrapper .desc__wrapper-links li {
     font-size: 18px;
+  }
+
+  .slide-arrow.slide-arrow--right {
+    right: -50px;
+  }
+  .slide-arrow.slide-arrow--left {
+    left: -50px;
   }
 }
 </style>

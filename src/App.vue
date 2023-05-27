@@ -1,6 +1,6 @@
 <template>
   <Progress />
-  <TheHeader :lightTheme="lightTheme" />
+  <TheHeader :lightTheme="lightTheme" :activeSection="activeSection" />
   <ThemeSwitch @changeTheme="changeTheme" :lightTheme="lightTheme" />
   <main>
     <Welcome />
@@ -43,31 +43,22 @@ export default {
       projects: [
         {
           id: 5,
-          name: 'Wazobia Commerce',
+          name: 'eCommerce Sites',
           image: '',
           desc: "A demo eCommerce shopping store where customers can browse a catalogue of store's inventory to select items to cart and checkout either as guest or registered users with a payment gateway (Paypal sandbox).",
           langs: ['React', 'Context API', 'Firebase'],
           links: [
             {
-              type: 'Live site',
+              type: 'Wazobia',
               url: 'https://wazobia-e-commerce.netlify.app/',
             },
-          ],
-        },
-        {
-          id: 4,
-          name: 'Love Guage',
-          image: '',
-          desc: 'Love Guage is a responsive web app to check love compatibility score for couples using Love Calculator API. With love guage, you can export the csv data for your previous checks in the history page.',
-          langs: ['React'],
-          links: [
             {
-              type: 'Live site',
-              url: 'https://love-guage.netlify.app/',
+              type: 'T-Posh',
+              url: 'https://tposh-fashion.vercel.app/',
             },
             {
-              type: 'Repo',
-              url: 'https://github.com/Glowrare/love-guage',
+              type: 'African Fashion ',
+              url: 'https://tposh-african-fashion.vercel.app/',
             },
           ],
         },
@@ -122,9 +113,26 @@ export default {
             },
           ],
         },
+        {
+          id: 4,
+          name: 'Love Guage',
+          image: '',
+          desc: 'Love Guage is a responsive web app to check love compatibility score for couples using Love Calculator API. With love guage, you can export the csv data for your previous checks in the history page.',
+          langs: ['React'],
+          links: [
+            {
+              type: 'Live site',
+              url: 'https://love-guage.netlify.app/',
+            },
+            {
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/love-guage',
+            },
+          ],
+        },
       ],
       lightTheme: true,
-
+      activeSection: '',
       active: false,
       show: false,
       success: null,
@@ -142,11 +150,13 @@ export default {
       rootMargin: '-50px',
     };
 
-    // eslint-disable-next-line no-unused-vars
-    const observer = new IntersectionObserver(function (entries, observer) {
+    const appData = this; // Store a reference to the parent component's "this"
+
+    const observer = new IntersectionObserver(function (entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animation');
+          appData.activeSection = entry.target.id;
         } else {
           entry.target.classList.remove('animation');
         }
@@ -159,7 +169,8 @@ export default {
   },
   created() {
     let darkMode = localStorage.getItem('darkMode');
-    if (darkMode === 'enabled') {
+    const defaultDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((darkMode === null && defaultDarkMode) || darkMode === 'enabled') {
       this.lightTheme = false;
     }
   },
@@ -171,7 +182,7 @@ export default {
         localStorage.setItem('darkMode', 'enabled');
       } else {
         app.classList.remove('darkmode');
-        localStorage.setItem('darkMode', null);
+        localStorage.setItem('darkMode', 'disabled');
       }
     },
   },
@@ -220,14 +231,6 @@ export default {
 
   --overlay-bg: #701a7594;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --brand-dark-alt: #e2d784;
-    --brand-dark: #f5f5f5;
-    --brand-light: #180a0a;
-  }
-} */
 .darkmode {
   --brand-dark-alt: #e2d784;
   --brand-dark: #f5f5f5;
@@ -284,7 +287,11 @@ section.animation .fade-from-left {
 section.animation .fade-from-right {
   animation-name: fade-from-right;
 }
-
+@media only screen and (max-width: 768px) {
+  .vueperslides__arrow {
+    opacity: 1;
+  }
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
