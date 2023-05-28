@@ -17,7 +17,7 @@
           /></a>
         </div>
       </div>
-      <div class="fs-3 text-muted text-center">Copyright {{ new Date().getFullYear() }}</div>
+      <div class="fs-3 text-center">Copyright {{ new Date().getFullYear() }}</div>
     </container>
   </footer>
 </template>

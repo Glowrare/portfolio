@@ -1,6 +1,6 @@
 <template>
-  <div class="fib-container" aria-label="Scrolling list of Fibinacci sequence from 0 to 6765">
-    <div class="fib-wrapper" aria-hidden="true">
+  <div class="fib-container" aria-hidden="true">
+    <div class="fib-wrapper">
       <span v-for="(num, index) in fibSequence" :key="index">{{ num }}</span>
     </div>
   </div>

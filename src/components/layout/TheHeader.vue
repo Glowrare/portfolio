@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container justify-content-between">
-      <a class="navbar-brand logo-link" href="#about">
-        <img src="@/assets/ajibolanle-logo-light-theme.png" alt="" class="img-fluid logo" v-if="lightTheme" />
-        <img src="@/assets/ajibolanle-logo-dark-theme.png" alt="" class="img-fluid logo" v-else />
+      <a class="navbar-brand logo-link" href="#about" aria-label="Go to Top section">
+        <img src="@/assets/ajibolanle-logo-light-theme.png" alt="Logo" class="img-fluid logo" v-if="lightTheme" />
+        <img src="@/assets/ajibolanle-logo-dark-theme.png" alt="Logo" class="img-fluid logo" v-else />
       </a>
       <button
         class="navbar-toggler"
