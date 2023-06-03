@@ -1,7 +1,7 @@
 <template>
   <div class="fib-container" aria-hidden="true">
     <div class="fib-wrapper">
-      <span v-for="(num, index) in fibSequence" :key="index">{{ num }}</span>
+      <span v-for="(num, index) in fibSequence" :key="index" :class="{ marked: index === Math.floor(fibSequence.length / 2) }">{{ num }}</span>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   background: var(--brand-light);
   color: var(--brand-dark);
   max-width: fit-content;
-  padding: 20px 5px 0;
+  padding: 20px 0 0;
   position: fixed;
   top: 80px;
   bottom: 0;
@@ -30,6 +30,9 @@ export default {
   pointer-events: none;
   user-select: none;
   border-left: 4px solid var(--brand-light-alt);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fib-wrapper {
   display: flex;
@@ -37,10 +40,17 @@ export default {
   font-size: 2rem;
   text-align: center;
   gap: 20px;
+}
 
-  -moz-animation: top-down-scroll 15s alternate infinite;
-  -webkit-animation: top-down-scroll 15s alternate infinite;
-  animation: top-down-scroll 15s alternate infinite;
+.fib-wrapper > * {
+  padding: 0 3px;
+}
+
+.marked {
+  border: solid 4px var(--brand-light-alt);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-left-width: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -50,77 +60,19 @@ export default {
     top: auto;
     left: 0;
     z-index: 5;
-    padding-top: 5px;
+    padding-top: 0;
+    align-items: center;
   }
 
   .fib-wrapper {
     flex-direction: row;
-
-    -moz-animation: left-right-scroll 15s alternate infinite;
-    -webkit-animation: left-right-scroll 15s alternate infinite;
-    animation: left-right-scroll 15s alternate infinite;
   }
-}
-
-@-moz-keyframes top-down-scroll {
-  from {
-    -moz-transform: translate(0, 25%);
-  }
-  to {
-    -moz-transform: translate(0, -25%);
-  }
-}
-
-@-webkit-keyframes top-down-scroll {
-  from {
-    -webkit-transform: translate(0, 25%);
-  }
-  to {
-    -webkit-transform: translate(0, -25%);
-  }
-}
-
-@keyframes top-down-scroll {
-  from {
-    -moz-transform: translate(0, 25%);
-    -webkit-transform: translate(0, 25%);
-    transform: translate(0, 25%);
-  }
-  to {
-    -moz-transform: translate(0, -25%);
-    -webkit-transform: translate(0, -25%);
-    transform: translate(0, -25%);
-  }
-}
-
-@-moz-keyframes left-right-scroll {
-  from {
-    -moz-transform: translate(0, 100%);
-  }
-  to {
-    -moz-transform: translate(0, -100%);
-  }
-}
-
-@-webkit-keyframes left-right-scroll {
-  from {
-    -webkit-transform: translate(100%, 0);
-  }
-  to {
-    -webkit-transform: translate(-100%, 0);
-  }
-}
-
-@keyframes left-right-scroll {
-  from {
-    -moz-transform: translate(100%, 0);
-    -webkit-transform: translate(100%, 0);
-    transform: translate(100%, 0);
-  }
-  to {
-    -moz-transform: translate(-100%, 0);
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
+  .marked {
+    border-top-width: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-left-width: 4px;
   }
 }
 </style>
