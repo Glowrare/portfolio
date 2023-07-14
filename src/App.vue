@@ -66,6 +66,23 @@ export default {
           ],
         },
         {
+          id: 6,
+          name: "Lori's Blog",
+          image: '',
+          desc: 'A simple food blog website template built with Next.js to indulge in delectable recipes and food tips.',
+          langs: ['Next.js', 'MongoDB'],
+          links: [
+            {
+              type: 'Live site',
+              url: 'https://lori-blog.vercel.app/',
+            },
+            {
+              type: 'Repo',
+              url: 'https://github.com/Glowrare/lori-blog',
+            },
+          ],
+        },
+        {
           id: 3,
           name: 'Hero Finder',
           image: '',
