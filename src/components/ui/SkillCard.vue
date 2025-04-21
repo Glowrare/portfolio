@@ -1,8 +1,19 @@
 <template>
-  <li class="skill-item" :class="skill.skillClass" tabindex="0" :title="skill.label">
+  <li
+    class="skill-item"
+    :class="skill.skillClass"
+    tabindex="0"
+    :title="skill.label"
+  >
     <div class="skill-item-container">
       <div class="skill-item-front">
         <h3>{{ skill.title }}</h3>
+        <div
+          class="flip"
+          :aria-label="`Hover or click to flip ${skill.label} skill card`"
+        >
+          Hover to Flip
+        </div>
       </div>
       <div class="skill-item-back">{{ skill.tagline }}</div>
     </div>
@@ -11,7 +22,7 @@
 
 <script>
 export default {
-  props: ['skill'],
+  props: ["skill"],
 };
 </script>
 
@@ -22,14 +33,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -8%;
-  perspective: 1000px;
+  width: 100%;
+  min-height: 150px;
+  cursor: pointer;
 }
 .skill-item-container {
   background: var(--brand-light);
@@ -39,13 +45,10 @@ export default {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.7);
-  backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  border-radius: inherit;
+  box-shadow: 0 1px 4px 0 rgba(255, 255, 255, 0.7);
 }
 .darkmode .skill-item-container {
-  box-shadow: 0 4px 8px 0 var(--brand-light-alt);
+  box-shadow: 0 1px 4px 0 var(--brand-light-alt);
 }
 .skill-item:hover .skill-item-container,
 .skill-item:focus .skill-item-container {
@@ -59,6 +62,7 @@ export default {
 
 .skill-item-front {
   z-index: 2;
+  position: relative;
 }
 .skill-item-back {
   z-index: 1;
@@ -78,52 +82,18 @@ export default {
   justify-content: center;
   border-radius: inherit;
 }
-.skill-item.c-vue {
-  transform: translate(23vw);
-}
-.skill-item.c-scss {
-  transform: rotate(40deg) translate(22vw) rotate(-40deg);
-}
-.skill-item.c-git {
-  transform: rotate(calc(40deg * 2)) translate(22vw) rotate(calc(-40deg * 2));
-}
-.skill-item.c-jquery {
-  transform: rotate(calc(40deg * 3)) translate(25vw) rotate(calc(-40deg * 3));
-}
-.skill-item.c-react {
-  transform: rotate(calc(40deg * 4)) translate(27vw) rotate(calc(-40deg * 4));
-}
-.skill-item.c-css {
-  transform: rotate(calc(40deg * 5)) translate(27vw) rotate(calc(-40deg * 5));
-}
-.skill-item.c-html {
-  transform: rotate(calc(40deg * 6)) translate(27vw) rotate(calc(-40deg * 6));
-}
-.skill-item.c-js {
-  transform: rotate(calc(40deg * 7)) translate(25vw) rotate(calc(-40deg * 7));
-}
-.skill-item.c-boot {
-  transform: rotate(calc(40deg * 8)) translate(25vw) rotate(calc(-40deg * 8));
-}
-
 .skill-item h3 {
   font-size: 3rem;
   font-weight: 700;
 }
-
-@media screen and (max-width: 768px) {
-  .skill-item {
-    transform: none !important;
-    position: static;
-    margin: 0;
-    flex-grow: 1;
-    border-radius: 0;
-  }
-
-  .skill-item-container {
-    max-height: 150px;
-    max-width: 150px;
-    border-radius: 100%;
-  }
+.flip {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0 5px;
+  background: var(--brand-dark);
+  color: var(--brand-light);
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 </style>
