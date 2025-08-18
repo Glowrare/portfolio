@@ -52,19 +52,15 @@ export default {
           id: 5,
           name: "eCommerce Sites",
           image: "",
-          desc: "A demo eCommerce shopping store where customers can browse a catalogue of store's inventory to select items to cart and checkout either as guest or registered users with a payment gateway (Paypal sandbox).",
-          langs: ["React", "Context API", "Firebase"],
+          desc: "A demo eCommerce shopping store where customers can browse a catalogue of store's inventory to select items to cart and checkout either as guest or registered users with a payment gateway (Paypal/Stripe sandbox).",
+          langs: ["React", "Next.js", "Context API", "Firebase"],
           links: [
             {
-              type: "Wazobia",
-              url: "https://wazobia-e-commerce.netlify.app/",
+              type: "Luxe and Label (Next)",
+              url: "https://luxe-and-label.vercel.app/",
             },
             {
-              type: "T-Posh",
-              url: "https://tposh-fashion.vercel.app/",
-            },
-            {
-              type: "African Fashion ",
+              type: "African Fashion (React)",
               url: "https://tposh-african-fashion.vercel.app/",
             },
           ],
