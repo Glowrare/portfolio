@@ -8,6 +8,7 @@
           :breakpoints="descBreakpoints"
           :arrows="false"
           :touchable="false"
+          :infinite="false"
           :slide-ratio="1 / 5"
           @slide="onSlideChange"
           class="no-shadow fade-in"
@@ -20,7 +21,7 @@
                   <p class="m-0">{{ project.desc }}</p>
                 </div>
                 <ul class="desc__wrapper-links mt-3">
-                  <li v-for="(link, i) in project.links" :key="i">
+                  <li v-for="(link, idx) in project.links" :key="idx">
                     <a
                       :href="i === activeIndex ? link.url : null"
                       :tabindex="i === activeIndex ? 0 : -1"
