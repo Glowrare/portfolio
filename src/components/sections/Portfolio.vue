@@ -9,12 +9,7 @@
           :arrows="false"
           :touchable="false"
           :slide-ratio="1 / 5"
-          @slide="
-            $refs.listSlider &&
-              $refs.listSlider.goToSlide($event.currentSlide.index, {
-                emit: false,
-              })
-          "
+          @slide="onSlideChange"
           class="no-shadow fade-in"
           :bullets="false"
         >
@@ -26,9 +21,13 @@
                 </div>
                 <ul class="desc__wrapper-links mt-3">
                   <li v-for="(link, i) in project.links" :key="i">
-                    <a :href="link.url" target="_blank" class="py-1 px-4">{{
-                      link.type
-                    }}</a>
+                    <a
+                      :href="i === activeIndex ? link.url : null"
+                      :tabindex="i === activeIndex ? 0 : -1"
+                      target="_blank"
+                      class="py-1 px-4"
+                      >{{ link.type }}</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -44,12 +43,7 @@
           :slide-ratio="1 / 5"
           :bullets="false"
           :dragging-distance="50"
-          @slide="
-            $refs.descriptionSlider &&
-              $refs.descriptionSlider.goToSlide($event.currentSlide.index, {
-                emit: false,
-              })
-          "
+          @slide="onSlideChange"
           :gap="1.5"
           class="no-shadow slider-container--list fade-from-bottom"
           style="margin: 0 30px"
@@ -102,6 +96,7 @@ export default {
   components: { VueperSlides, VueperSlide },
   data() {
     return {
+      activeIndex: 0,
       descBreakpoints: {
         1200: {
           slideRatio: 1 / 3,
@@ -128,6 +123,37 @@ export default {
         },
       },
     };
+  },
+  methods: {
+    onSlideChange({ currentSlide }) {
+      const index = currentSlide.index;
+      this.activeIndex = index;
+
+      // keep sliders in sync
+      this.$refs.descriptionSlider?.goToSlide(index, { emit: false });
+      this.$refs.listSlider?.goToSlide(index, { emit: false });
+
+      // fix accessibility
+      this.$nextTick(() => {
+        const slides = this.$el.querySelectorAll(".vueperslide");
+
+        slides.forEach((slide, i) => {
+          const focusables = slide.querySelectorAll(
+            "a, button, input, textarea, select"
+          );
+
+          focusables.forEach((el) => {
+            if (i === index) {
+              el.removeAttribute("tabindex");
+              el.removeAttribute("aria-disabled");
+            } else {
+              el.setAttribute("tabindex", "-1");
+              el.setAttribute("aria-disabled", "true");
+            }
+          });
+        });
+      });
+    },
   },
 };
 </script>
